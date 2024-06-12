@@ -1,12 +1,22 @@
 console.log("hello");
+
+let storeUserInfo = localStorage.getItem("userInformation");
+
+if(storeUserInfo){
+    let userInfo = JSON.parse(storeUserInfo);
+
+    document.getElementById("firstName").textContent= userInfo.firstName;
+    document.getElementById("lastName").textContent= userInfo.lastName;
+    document.getElementById("country").textContent= userInfo.country;
+    document.getElementById("phoneNo").textContent= userInfo.phoneNo;
+    document.getElementById("state").textContent= userInfo.state;
+    document.getElementById("city").textContent= userInfo.city;
+    document.getElementById("village").textContent  = userInfo.village;
+}else{
+    takingUserInput();
+}
 // Dom--------------------------------
-let userFirstName = document.getElementById("firstName");
-let userLastName = document.getElementById("lastName");
-let userCountry = document.getElementById("country");
-let userPhoneNo = document.getElementById("phoneNo");
-let userState = document.getElementById("state");
-let userCity = document.getElementById("city");
-let userVillage = document.getElementById("village");
+
 
 //taking input from user..........
 function takingUserInput(){
@@ -28,16 +38,16 @@ function takingUserInput(){
         village,
     };
 
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    localStorage.setItem("userInformation", JSON.stringify(userInfo));
 
     //display the user info from promt to card--------------------
-    userFirstName.innerText= userInfo.firstName;
-    userLastName.innerText= userInfo.lastName;
-    userCountry.innerText= userInfo.country;
-    userPhoneNo.innerText= userInfo.phoneNo;
-    userState.innerText= userInfo.state;
-    userCity.innerText= userInfo.city;
-    userVillage.innerText= userInfo.village;
+    document.getElementById("firstName").textContent= userInfo.firstName;
+    document.getElementById("lastName").textContent= userInfo.lastName;
+    document.getElementById("country").textContent= userInfo.country;
+    document.getElementById("phoneNo").textContent= userInfo.phoneNo;
+    document.getElementById("state").textContent= userInfo.state;
+    document.getElementById("city").textContent= userInfo.city;
+    document.getElementById("village").textContent  = userInfo.village;
     
 }
-takingUserInput();
+// takingUserInput();
